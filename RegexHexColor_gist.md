@@ -44,15 +44,15 @@ Hex color values are widely used in web design, where they can be specified in C
 ## Regex Components
 Here's a breakdown of the individual components in the given regular expression:
 
-    In JavaScript and many other programming languages, forward slashes (/) are used to delimit regular expressions. The forward slashes indicate the beginning and end of a regular expression pattern, and any characters between them are interpreted as a regular expression. For example, the regular expression /abc/ matches any string that contains the characters "abc" in sequence.
+In JavaScript and many other programming languages, forward slashes (/) are used to delimit regular expressions. The forward slashes indicate the beginning and end of a regular expression pattern, and any characters between them are interpreted as a regular expression. For example, the regular expression /abc/ matches any string that contains the characters "abc" in sequence.
 
-    ^: The caret symbol (^) is an anchor that matches the beginning of a line/string.
+^: The caret symbol (^) is an anchor that matches the beginning of a line/string.
 
-    #?: This part of the expression matches an optional hash symbol (#). The question mark (?) makes the preceding hash symbol optional.
+#?: This part of the expression matches an optional hash symbol (#). The question mark (?) makes the preceding hash symbol optional.
 
-    ([a-f0-9]{6}|[a-f0-9]{3}): This is the core of the expression, which matches a six-digit or three-digit hexadecimal color value. The [a-f0-9] character class matches any letter between a and f (case-insensitive) and any digit between 0 and 9. The {6} and {3} quantifiers specify the length of the color value.
+([a-f0-9]{6}|[a-f0-9]{3}): This is the core of the expression, which matches a six-digit or three-digit hexadecimal color value. The [a-f0-9] character class matches any letter between a and f (case-insensitive) and any digit between 0 and 9. The {6} and {3} quantifiers specify the length of the color value.
 
-    \$: The dollar symbol (\$) is an anchor that matches the end of a line/string.
+\$: The dollar symbol (\$) is an anchor that matches the end of a line/string.
 
 This regular expression matches a hex color value in the form of a string that starts with an optional # symbol, followed by either a six-digit or three-digit hexadecimal value consisting of the characters [a-f0-9]. The entire string must match the pattern, hence the use of the start and end anchor characters ^ and \$.
 
@@ -85,7 +85,7 @@ Together, the quantifiers and alternation provide flexibility to the pattern mat
 
 In the regular expression /^#?([a-f0-9]{6}|[a-f0-9]{3})\$/, the character class [a-f0-9] is used to match hexadecimal digits. Here's a breakdown of what that character class means:
 
-    [a-f0-9]: This is a character class that matches any character that is a lowercase letter between a and f, an uppercase letter between A and F, or a digit between 0 and 9. This character class is case-insensitive, meaning that it will match both uppercase and lowercase letters.
+[a-f0-9]: This is a character class that matches any character that is a lowercase letter between a and f, an uppercase letter between A and F, or a digit between 0 and 9. This character class is case-insensitive, meaning that it will match both uppercase and lowercase letters.
 
 The character class is used inside the quantified expressions {6} and {3} to match exactly six or three characters of the given class, respectively. This means that the regular expression will match any string that contains a sequence of six or three hexadecimal characters (depending on the case), after the optional # symbol.
 
@@ -95,11 +95,11 @@ Overall, the character class [a-f0-9] provides a concise way to match hexadecima
 
 In the regular expression /^#?([a-f0-9]{6}|[a-f0-9]{3})\$/, no flags are used. Flags are optional parameters that can be added to a regular expression to modify its behavior. Here are some commonly used flags in JavaScript:
 
-    g (global): This flag allows a regular expression to match multiple occurrences of a pattern in a string, rather than just the first occurrence. For example, /abc/g would match all occurrences of "abc" in a string, rather than just the first occurrence.
+g (global): This flag allows a regular expression to match multiple occurrences of a pattern in a string, rather than just the first occurrence. For example, /abc/g would match all occurrences of "abc" in a string, rather than just the first occurrence.
 
-    i (ignore case): This flag makes the regular expression case-insensitive, meaning that it will match both uppercase and lowercase letters. For example, /abc/i would match "abc", "AbC", "ABC", and so on.
+i (ignore case): This flag makes the regular expression case-insensitive, meaning that it will match both uppercase and lowercase letters. For example, /abc/i would match "abc", "AbC", "ABC", and so on.
 
-    m (multiline): This flag changes the behavior of the ^ and \$ anchors to match the beginning and end of each line in a multiline string, rather than just the beginning and end of the entire string.
+m (multiline): This flag changes the behavior of the ^ and \$ anchors to match the beginning and end of each line in a multiline string, rather than just the beginning and end of the entire string.
 
 Since the regular expression /^#?([a-f0-9]{6}|[a-f0-9]{3})\$/ is not using any flags, it will match the pattern at the beginning and end of the string only once. However, if the g flag were added to the expression, it would match all occurrences of the pattern in the string. If the i flag were added, it would make the expression case-insensitive, allowing it to match both uppercase and lowercase hexadecimal characters. The m flag would have no effect on this particular regular expression since it doesn't involve multiline matching.
 
@@ -111,7 +111,7 @@ The parentheses ( ) in the regular expression create a capture group around the 
 
 Here's a breakdown of how the grouping and capturing works:
 
-    ([a-f0-9]{6}|[a-f0-9]{3}): This is the capture group that matches either a sequence of six or three hexadecimal digits, depending on the input string. The alternation operator | allows either of the expressions to match, while the quantifiers {6} and {3} specify the length of the matched string.
+([a-f0-9]{6}|[a-f0-9]{3}): This is the capture group that matches either a sequence of six or three hexadecimal digits, depending on the input string. The alternation operator | allows either of the expressions to match, while the quantifiers {6} and {3} specify the length of the matched string.
 
 When a string matches the regular expression, the entire matched string is captured by the regular expression engine. However, since we've defined a capture group using parentheses, the engine also stores the matched hexadecimal value inside that capture group. This allows us to access the matched value separately from the full matched string.
 
